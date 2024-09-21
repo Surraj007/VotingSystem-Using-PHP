@@ -3,6 +3,7 @@ require 'db.php';
 $options = $db->query("SELECT * FROM options ORDER BY votes DESC")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +15,10 @@ $options = $db->query("SELECT * FROM options ORDER BY votes DESC")->fetchAll(PDO
 <body>
     <h2>Voting Results</h2>
 
+    
     <?php foreach ($options as $option): ?>
-        <p>
-            <?= htmlspecialchars($option['name']) ?>: <?= $option['votes'] ?> vote(s)
-        </p>
+        <p> <?= htmlspecialchars($option['name']) ?>: <?= $option['votes'] ?> vote(s)  </p>
     <?php endforeach; ?>
-
     <br>
     <a href="index.php">Back to Voting</a>
 </body>
